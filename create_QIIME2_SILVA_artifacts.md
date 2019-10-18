@@ -2,7 +2,7 @@ Inspired from [https://forum.qiime2.org/t/nanopore-reads-analysis-using-qiime2/1
 
 *REQUIREMENTS:* software as explained in the **[MetONTIIME tutorial and scripts](https://github.com/MaestSi/MetONTIIME)**
 
-### get the SQILVA raw data from the server
+### get the SILVA raw data from the server
 
 ```
 wget https://www.arb-silva.de/fileadmin/silva_databases/qiime/Silva_132_release.zip
@@ -58,3 +58,13 @@ qiime tools import \
     --input-format HeaderlessTSVTaxonomyFormat \
     --output-path silva_132_${identity}${type}_taxonomy.qza
 ```
+
+**Please let me know if you find typos or inconsistencies and of course suggest additional tracks using the Issue tracker above**
+
+*&copy;Stephane Plaisance, VIB-Nucleomics Core*
+
+------------
+
+![Creative Commons License](http://i.creativecommons.org/l/by-sa/3.0/88x31.png?raw=true)
+
+This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/).
