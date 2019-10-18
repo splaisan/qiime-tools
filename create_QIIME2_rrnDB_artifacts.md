@@ -31,8 +31,6 @@ The procedure includes the following steps
 
 ### get public data from the **rrn** repository
 
-### get GB data to build a taxonomy mapping of the sequences
-
 ```
 wget https://github.com/alfbenpa/rrn_db/blob/master/operon.100.fa.tar.gz
 tar -xzvf operon.100.fa.tar.gz
