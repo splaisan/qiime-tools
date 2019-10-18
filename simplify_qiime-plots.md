@@ -15,7 +15,7 @@ qiime tools export --input-path taxonomy.qza --output-path taxonomy_export
 ```
 
 * adapt the **.tsv** file to simplify the taxon column to your needs, (genus and species shown here)
-  - two custom bash functions have been created to operate on genus or species level
+  - a custom bash functions has been created to operate on genus and species levels adn remove obsolete text from the labels.
 
     ```
     function cleantaxonomy (){
