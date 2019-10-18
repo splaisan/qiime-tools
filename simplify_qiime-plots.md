@@ -57,7 +57,7 @@ qiime tools import \
   --output-path taxonomy_species.qza
 ```
 
-* optionally filter out unclassified rows in the **table.qza** if you don ot want them in the barplot
+* optionally filter out 'unclassified/unassigned' rows in the **table.qza** if you do not want them in the barplot
 
 ```
 # choose either genus or species file below!
