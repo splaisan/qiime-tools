@@ -15,7 +15,7 @@ A third database, **rrn** was created in order to analyse long rRNA amplicons en
 
 We detail here the procedure to create Qiime2 artifacts for the rrn database for use in MetONTIIME or QIIME2.
 
-### create qiime artifacts for the rrnDB database 
+## create qiime artifacts for the rrnDB database 
 
 The **rrnDB** public database was derived from the NCBI RefSeq collection ([Stoddard et al, 2015](https://dx.doi.org/10.1093%2Fnar%2Fgku1201)) and contains genomic regions corresponding to the full 16S_ITS_18S locus from a large number of bacteria. We obtained this data and corresponding accession numbers from the **[github repository](https://github.com/alfbenpa/rrn_db)**.
 
