@@ -77,7 +77,7 @@ writeXStringSet(x = new_db, filepath = output_file_name, format = "fasta", width
 
 Direct classification of the **rrnDB** with the classical genbank *nucl_gb.accession2taxid* as detailerd in the *[MetONTIIME tutorial[(https://github.com/MaestSi/MetONTIIME)* leads to **8012** missing accessions. The same analysis using the second dump file *nucl_wgs.accession2taxid* missed **3755** accessions. This motivated merging both files to recover more taxons.
 
-The 2 Genbank dumps *nucl_gb.accession2taxid* and *nucl_wgs.accession2taxid* were therefore merged to a non-redundant file that covers most of the **rrnDB** accessions. Only **283** accessions from the rrnDB out of **11484** were still missed with the merged reference set. We did not try to rescue the remaining GBacc which probbaly correspond to removed or renamed records.
+The 2 Genbank dumps *nucl_gb.accession2taxid* and *nucl_wgs.accession2taxid* were therefore merged to a non-redundant file that covers most of the **rrnDB** accessions. Only **283** accessions from the rrnDB out of **11484** were still missed with the merged reference set. We did not try to rescue these leftover GBacc's which probably correspond to removed or renamed records.
 
 ```
 # get raw data from NCBI
