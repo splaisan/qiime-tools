@@ -11,7 +11,7 @@ unzip Silva_132_release.zip
 
 A folder was created which contains a full structure with imput files for **qiime import** commands
 
-### create a single gene database
+### create a single gene SILVA.132 database
 
 Choose target database (16S or 18S) and a specificity in the code below. Comment/uncomment as required for your needs.
 
@@ -39,7 +39,7 @@ qiime tools import \
     --output-path silva_132_${identity}${type}_taxonomy.qza
 ```
 
-### create a full operon database
+### create a full operon SILVA.132 database
 
 The artifacts will cover the full operon **16S-ITS-23S**
 
