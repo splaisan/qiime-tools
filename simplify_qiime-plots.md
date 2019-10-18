@@ -60,7 +60,7 @@ qiime taxa filter-table \
   --o-filtered-table table-no-unassigned.qza
 ```
 
-* produce the viewer **qzv**
+* produce the viewer **qzv** (requires $SAMPLE_METADATA defined before)
 
 ```
 # choose either qza from above(
