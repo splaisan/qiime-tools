@@ -30,7 +30,7 @@ qiime tools export --input-path taxonomy.qza --output-path taxonomy_export
       gen=gena[1]; gsub(/[ \t]+$/,"",gen); \
       species=tax[slev]; gsub("D_.*__", "", species); split(species,spea," "); \
       spe=spea[1]" "spea[2]; gsub(/[ \t]+$/,"",spe); \
-      print $1,gen";"spe,$3}}' $1 > "${outfolder}/${1%.tsv}.tsv"
+      print $1,gen";"spe,$3}}' $1 > "${outfolder}/$(basename ${1%.tsv}).tsv"
     }
     ```
 
