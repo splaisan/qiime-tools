@@ -44,7 +44,7 @@ Rscript rrn2ncbi.R operons.100.fa species_annotation operons.100_gb_names.fa
 
 ### reformat the rrn data and create Qiime compatible data
 
-The **rrn2ncbi.R** script (provided by *Simone Maestri[https://github.com/MaestSi]*) was used to rename the fasta sequences based on the accompanying annotation file
+The **rrn2ncbi.R** script (provided by *[Simone Maestri](https://github.com/MaestSi)*) was used to rename the fasta sequences based on the accompanying annotation file
 
 ```
 # prepare rrnaDB data for MetONTIIME
