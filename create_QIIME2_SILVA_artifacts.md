@@ -1,6 +1,6 @@
 Inspired from [https://forum.qiime2.org/t/nanopore-reads-analysis-using-qiime2/11364/2](https://forum.qiime2.org/t/nanopore-reads-analysis-using-qiime2/11364/2)
 
-see **[create_QIIME2_rrnDB_artifacts](create_QIIME2_rrnDB_artifacts.md)**
+see **[create_QIIME2_rrnDB_artifacts](create_QIIME2_rrnDB_artifacts.md)** for instruction on how to create Qiime2 artifacts.
 
 ### get the SQILVA raw data from the server
 
