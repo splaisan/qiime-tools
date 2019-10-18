@@ -74,11 +74,11 @@ qiime taxa filter-table \
 
 ```
 # choose either qza from above(
-qiime qiime taxa barplot \
+qiime taxa barplot \
   --i-table <table.qza|table-no-unassigned.qza> \
-  --i-taxonomy taxonomy.qza \
+  --i-taxonomy taxonomy_<genus|species>.qza \
   --m-metadata-file $SAMPLE_METADATA \
-  --o-visualization taxa-bar-plots.qzv
+  --o-visualization <genus|species>-taxa-bar-plots.qzv
 ```
 
 * upload the created **taxa-bar-plots.qzv** to the viewer
