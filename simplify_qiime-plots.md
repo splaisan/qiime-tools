@@ -18,30 +18,31 @@ qiime tools export --input-path taxonomy.qza --output-path taxonomy_export
   - two custom bash functions have been created to operate on genus or species level
 
     ```
-		function cleangenus (){
-		  level=6;
-		  outfolder=taxonomy_genus
-		  mkdir -p ${outfolder}
-		  gawk -v lev="${level}" 'BEGIN{FS="\t"; OFS="\t"}\
-		  {if(NR==1){print $0} else \
-		  {split($2,tax,";"); res=tax[lev]; \
-		  gsub("D_.__", "", res); split(res,gen," "); \
-		  gsub(/[ \t]+$/,"",gen[1]); \
-		  print $1,gen[1],$3}}' $1 > "${outfolder}/${1%.tsv}.tsv"
-		}
-
-		function cleanspecies (){
-		  level=7;
-		  outfolder=taxonomy_species
-		  mkdir -p ${outfolder}
-		  gawk -v lev="${level}" 'BEGIN{FS="\t"; OFS="\t"}\
-		  {if(NR==1){print $0} else \
-		  {split($2,tax,";"); \
-		  res=tax[lev]; split(res,spe," "); \
-		  col2=spe[1]" "spe[2]; \
-		  gsub(/[ \t]+$/,"",col2); \
-		  print $1,col2,$3}}' $1 > "${outfolder}/${1%.tsv}.tsv"
-		}
+    function cleangenus (){
+    level=6;
+    outfolder=taxonomy_genus
+    mkdir -p ${outfolder}
+    gawk -v lev="${level}" 'BEGIN{FS="\t"; OFS="\t"}\
+    {if(NR==1){print $0} else \
+    {split($2,tax,";"); res=tax[lev]; \
+    gsub("D_.__", "", res); split(res,gen," "); \
+    gsub(/[ \t]+$/,"",gen[1]); \
+    print $1,gen[1],$3}}' $1 > "${outfolder}/${1%.tsv}.tsv"
+    }
+    
+    function cleanspecies (){
+    level=7;
+    outfolder=taxonomy_species
+    mkdir -p ${outfolder}
+    gawk -v lev="${level}" 'BEGIN{FS="\t"; OFS="\t"}\
+    {if(NR==1){print $0} else \
+    {split($2,tax,";"); \
+    res=tax[lev]; split(res,spe," "); \
+    col2=spe[1]" "spe[2]; \
+    gsub(/[ \t]+$/,"",col2); \
+    print $1,col2,$3}}' $1 > "${outfolder}/${1%.tsv}.tsv"
+    }
+    
     # run with
     cleanspecies taxonomy.tsv
     cleangenus taxonomy.tsv
