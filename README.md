@@ -2,7 +2,7 @@
 
 # qiime-tools
 
-Scripts and ideas round the **[Qiime2](https://qiime2.org/) platform
+Scripts and ideas round the **[Qiime2](https://qiime2.org/)** platform
 
 * [create_QIIME2_SILVA_artifacts](create_QIIME2_SILVA_artifacts.md)
 
