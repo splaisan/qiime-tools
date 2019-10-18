@@ -91,12 +91,8 @@ After cleaning the taxonomy labels, the genus and species levels are shown below
 
 **Note:** Additional advantage of the cleaning was to merge all subspecies of a given species to the same label. Indeed, a number of records in the Silva database include subspecies information whicvh may not be relevant in such plot (an extreme example here: 'Listeria monocytogenes serotype 1/2a str. NCCP No. 15743' => 'Listeria monocytogenes' after cleaning).
 
-For the total data (including unassigned reads)
-
 ![cleaned genus plot](pictures/silva_cleaned_genus_taxa_plot.png)
 
 ![cleaned species plot](pictures/silva_cleaned_species_taxa_plot.png)
-
-For the assigned data
 
 ## Please report any inconsistency or suggestion to [nucleomics-bioinformatics@vib.be)](mailto:nucleomics-bioinformatics@vib.be)
