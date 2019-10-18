@@ -1,9 +1,8 @@
-# AT WORK
-
 ## context
 By default Qiime2 produces boxplot labels covering the full taxonomy length (up to 7 levels in my case). These levels print ugly when data is submitted to the very neat **[Qiime2view](https://view.qiime2.org/)**
 
-Two simple pilelines are shown below to produce 1-level data and create a more readable plot from it
+A simple pileline is shown below to produce 2-level data and create a more readable plot from it at either genus or species level.
+
 The method can be devided as follows (thanks to the post by **[Nicholas_Bokulich](https://forum.qiime2.org/t/command-or-tool-to-shorten-the-very-long-labels-in-viewer-from-taxa-bar-plots-qzv/12023/3))**
 
 ## method
@@ -88,7 +87,9 @@ The first plot shows the very long labels obtained at genus and species level wi
 
 ![original species plot](pictures/silva_original_species_taxa_plot.png)
 
-After cleaning the taxonomy labels, the genus and species levels are shown below
+After cleaning the taxonomy labels, the genus and species levels are shown below. 
+
+**Note:** Additional advantage of the cleaning was to merge all subspecies of a given species to the same label. Indeed, a number of records in the Silva database include subspecies information whicvh may not be relevant in such plot (an extreme example here: 'Listeria monocytogenes serotype 1/2a str. NCCP No. 15743' => 'Listeria monocytogenes' after cleaning).
 
 For the total data (including unassigned reads)
 
@@ -97,3 +98,5 @@ For the total data (including unassigned reads)
 ![cleaned species plot](pictures/silva_cleaned_species_taxa_plot.png)
 
 For the assigned data
+
+## Please report any inconsistency or suggestion to [nucleomics-bioinformatics@vib.be)](mailto:nucleomics-bioinformatics@vib.be)
