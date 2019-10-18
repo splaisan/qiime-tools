@@ -42,6 +42,9 @@ qiime tools export --input-path taxonomy.qza --output-path taxonomy_export
 		  gsub(/[ \t]+$/,"",col2); \
 		  print $1,col2,$3}}' $1 > "${outfolder}/${1%.tsv}.tsv"
 		}
+    # run with
+    cleanspecies taxonomy.tsv
+    cleangenus taxonomy.tsv
     ```
 
 * convert the new folder and contained modified **.tsv** file back to a **qza** artefact
