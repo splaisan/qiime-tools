@@ -84,16 +84,16 @@ qiime taxa barplot \
 
 The first plot shows the very long labels obtained at species level with the MetONTIIME data
 
-[!original genus plot](pictures/silva_original_genus_taxa_plot.png)]
+[!original genus plot](pictures/silva_original_genus_taxa_plot.png)
 
-[!original species plot](pictures/silva_original_species_taxa_plot.png)]
+[!original species plot](pictures/silva_original_species_taxa_plot.png)
 
 After cleaning the taxonomy labels, the genus and species levels are shown below
 
 For the total data (including unassigned reads)
 
-[!cleaned genus plot](pictures/silva_cleaned_genus_taxa_plot.png)]
+[!cleaned genus plot](pictures/silva_cleaned_genus_taxa_plot.png)
 
-[!cleaned species plot](pictures/silva_cleaned_species_taxa_plot.png)]
+[!cleaned species plot](pictures/silva_cleaned_species_taxa_plot.png)
 
 For the assigned data
