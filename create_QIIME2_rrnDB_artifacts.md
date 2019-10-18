@@ -114,3 +114,13 @@ qiime tools import \
   --input-format HeaderlessTSVTaxonomyFormat \
   --output-path rrnDB_operons_taxonomy.qza
 ```
+
+**Please let me know if you find typos or inconsistencies and of course suggest additional tracks using the Issue tracker above**
+
+*&copy;Stephane Plaisance, VIB-Nucleomics Core*
+
+------------
+
+![Creative Commons License](http://i.creativecommons.org/l/by-sa/3.0/88x31.png?raw=true)
+
+This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/).
