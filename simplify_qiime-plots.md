@@ -45,10 +45,16 @@ qiime tools export --input-path taxonomy.qza --output-path taxonomy_export
 
 ```
 # for genus
-qiime tools import --type FeatureData[Taxonomy] --input-path taxonomy_genus --output-path taxonomy_genus.qza
+qiime tools import \
+  --type FeatureData[Taxonomy] \
+  --input-path taxonomy_genus \
+  --output-path taxonomy_genus.qza
 
 # for species
-qiime tools import --type FeatureData[Taxonomy] --input-path taxonomy_species --output-path taxonomy_species.qza
+qiime tools import \
+  --type FeatureData[Taxonomy] \
+  -input-path taxonomy_species \
+  --output-path taxonomy_species.qza
 ```
 
 * optionally filter out unclassified rows in the **table.qza** if you don ot want them in the barplot
