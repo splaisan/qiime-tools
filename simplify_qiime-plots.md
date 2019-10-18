@@ -82,7 +82,7 @@ qiime taxa barplot \
 
 ## examples
 
-The first plot shows the very long labels obtained at species level with the MetONTIIME data
+The first plot shows the very long labels obtained at genus and species level with the MetONTIIME data (after removing unclassified data)
 
 ![original genus plot](pictures/silva_original_genus_taxa_plot.png)
 
