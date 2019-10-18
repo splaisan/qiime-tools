@@ -11,8 +11,8 @@ Scripts and ideas round the **[Qiime2](https://qiime2.org/)** platform
 * [Simplify labels in Qiime plots](simplify_qiime-plots.md)
 
 
+<hr>
 *Disclaimer: This is not an official QIIME2 site but only personal code and results to use with QIIME2*
-
 <hr>
 
 **Please let me know if you find typos or inconsistencies and of course suggest additional tracks using the Issue tracker above**
