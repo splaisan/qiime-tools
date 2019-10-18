@@ -13,20 +13,20 @@ qiime tools export --input-path taxonomy.qza --output-path taxonomy_export
 * adapt the tsv file to simplify the taxon column to your needs, (genus and species shown here)
   - two custom bash functions have been created to operate on genus or species level
 
-  ```
-cleangenus () 
-{ 
-
-  level=6;
-  outfolder=taxonomy_species
-  mkdir -p ${outfolder}
-  gawk -v lev="${level}" 'BEGIN{FS="\t"; OFS="\t"}\
-  {if(NR==1){print $0} else \
-  {split($2,tax,";"); res=tax[lev]; gsub("D_.__", "", res); split(res,gen," "); \
-  print $1,gen[1],$3}}' $1 > "${outfolder}/${1%.tsv}.tsv"
-
-}
-
+    ```
+    cleangenus () 
+    { 
+    
+      level=6;
+      outfolder=taxonomy_species
+      mkdir -p ${outfolder}
+      gawk -v lev="${level}" 'BEGIN{FS="\t"; OFS="\t"}\
+      {if(NR==1){print $0} else \
+      {split($2,tax,";"); res=tax[lev]; gsub("D_.__", "", res); split(res,gen," "); \
+      print $1,gen[1],$3}}' $1 > "${outfolder}/${1%.tsv}.tsv"
+    
+    }
+    
 cleanspecies () 
 { 
   level=7;
