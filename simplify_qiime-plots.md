@@ -125,11 +125,11 @@ Feature ID	Taxon	Consensus
 00138ad4bbf960cdcb83de0eb76429344015b90d	D_6__uncultured bacterium	1.0
 ```
 
-In the scase of species, I left the leading 'D_6__' but when also removing thsi the error below remains the same
+In the scase of species, I left the leading 'D_6__' but the error below remains when also removing this prefix
 
-It seems that the simplified data is not structurally correct anymore to generate the plot
+I ran the command below both with the original table.qza, the table-no-unassigned.qza OR the new <genus|species>-table-no-unassigned.qza without change in the error.
 
-I ran the command below both with the original table-no-unassigned.qza and the new <genus|species>-table-no-unassigned.qza without change in the error
+It seems that the simplified taxonomy_species.qza data is not structurally correct anymore to generate the plot
 
 ```
 qiime taxa barplot --i-table table-no-unassigned.qza --i-taxonomy taxonomy_species.qza --m-metadata-file $SAMPLE_METADATA --o-visualization species-taxa-bar-plots.qzv
