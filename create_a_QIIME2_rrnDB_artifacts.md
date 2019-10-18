@@ -10,13 +10,27 @@ The results obtained with Silva were very encourageing as they included the genu
 
 ![original genus plot](pictures/Zymo_compositions_Fig1.png)
 
-![original genus plot](pictures/Zymo_compositions_Fig1.png)
+A third database, **rrn** was created in order to analyse long rRNA amplicons encompassing bother 16S and 23S together with the ITS region as described in recent papers by *[Cusco et al, 2019](https://doi.org/10.12688/f1000research.16817.2)*.
 
-## method
+We detail here the procedure to create Qiime2 artifacts for the rrn database for use in MetONTIIME or QIIME2.
 
-### Analysis against the rrnDB database 
+### create qiime artifacts for the rrnDB database 
 
-Another public database (**rrnDB**) was derived from the NCBI RefSeq collection ([published in 2015](https://dx.doi.org/10.1093%2Fnar%2Fgku1201)) and contains genomic regions corresponding to the full 16S_ITS_18S locus from a large number of bacteria. We obtained this data and corresponding accession numbers from the **[github repository](https://github.com/alfbenpa/rrn_db)**. The data was re-annotated using the MetONTIIME workflow and NCBI taxonomy dump data. The resulting two Qiime2 artifacts were then used to analyze the same data samples as before.
+The **rrnDB** public database was derived from the NCBI RefSeq collection ([published in 2015](https://dx.doi.org/10.1093%2Fnar%2Fgku1201)) and contains genomic regions corresponding to the full 16S_ITS_18S locus from a large number of bacteria. We obtained this data and corresponding accession numbers from the **[github repository](https://github.com/alfbenpa/rrn_db)**.
+
+The procedure includes the following steps
+
+* get public data from the **rrn** repository
+
+* reformat the rrn data and create Qiime compatible data
+
+* get GB data to build a taxonomy mapping of the sequences
+
+* convert the reformatted data in Qiime format
+
+### get public data from the **rrn** repository
+
+### get GB data to build a taxonomy mapping of the sequences
 
 ```
 wget https://github.com/alfbenpa/rrn_db/blob/master/operon.100.fa.tar.gz
@@ -28,7 +42,9 @@ wget https://github.com/alfbenpa/rrn_db/blob/master/species_annotation
 Rscript rrn2ncbi.R operons.100.fa species_annotation operons.100_gb_names.fa
 ```
 
-The **rrn2ncbi.R** script next was used to rename the fasta sequences based on the accompanying annotation file
+### reformat the rrn data and create Qiime compatible data
+
+The **rrn2ncbi.R** script (provided by *Simone Maestri[https://github.com/MaestSi]*) was used to rename the fasta sequences based on the accompanying annotation file
 
 ```
 # prepare rrnaDB data for MetONTIIME
@@ -58,9 +74,11 @@ names(new_db) <- new_names
 writeXStringSet(x = new_db, filepath = output_file_name, format = "fasta", width = 20000)
 ```
 
-Classification of the rrnDB with the classical genbank *nucl_gb.accession2taxid* leads to **8012** missing accessions. The same analysis using the second dump file *nucl_wgs.accession2taxid* missed **3755** accessions. This motivated merging both files to recover more taxons.
+### get GB data to build a taxonomy mapping of the sequences
 
-The 2 Genbank dumps *nucl_gb.accession2taxid* and *nucl_wgs.accession2taxid* were merged to cover most of the rrn DB accessions. Only **283** accessions from the rrnDB out of **11484** were still missed with the merged reference set.
+Direct classification of the **rrnDB** with the classical genbank *nucl_gb.accession2taxid* as detailerd in the *[MetONTIIME tutorial[(https://github.com/MaestSi/MetONTIIME)* leads to **8012** missing accessions. The same analysis using the second dump file *nucl_wgs.accession2taxid* missed **3755** accessions. This motivated merging both files to recover more taxons.
+
+The 2 Genbank dumps *nucl_gb.accession2taxid* and *nucl_wgs.accession2taxid* were therefore merged to a non-redundant file that covers most of the **rrnDB** accessions. Only **283** accessions from the rrnDB out of **11484** were still missed with the merged reference set. We did not try to rescue the remaining GBacc which probbaly correspond to removed or renamed records.
 
 ```
 # get raw data from NCBI
@@ -72,8 +90,14 @@ gunzip nucl_wgs.accession2taxid.gz
 
 # merge to a unique dataset
 cat nucl_gb.accession2taxid nucl_wgs.accession2taxid | sort | uniq > nucl_merged.accession2taxid
+```
 
-# use to create annotation taxonomy as detailed in  Import_database.sh
+### convert the reformatted data in Qiime format
+
+The fasta, ncbi-dump, and merged accession table were used together to produce a taxonomy file and Qiime2 sequence and annotation artifacts
+
+```
+# use to create annotation taxonomy as detailed in MetONTIIME/Import_database.sh
 python2.7 ./entrez_qiime/entrez_qiime.py \
  -i operons.100_gb_names.fa \
  -n ./taxonomy/taxdump \
