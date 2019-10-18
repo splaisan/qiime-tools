@@ -2,7 +2,7 @@ Inspired from [https://forum.qiime2.org/t/nanopore-reads-analysis-using-qiime2/1
 
 see **[create_QIIME2_rrnDB_artifacts](create_QIIME2_rrnDB_artifacts.md)** for instruction on how to create Qiime2 artifacts.
 
-*REQUIREMENTS: software as explained in the **[MetONTIIME tutorial and scripts](https://github.com/MaestSi/MetONTIIME)*
+*REQUIREMENTS: software as explained in the **[MetONTIIME tutorial and scripts](https://github.com/MaestSi/MetONTIIME)** *
 
 ### get the SQILVA raw data from the server
 
