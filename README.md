@@ -1,4 +1,4 @@
-![logo](pictures/qiime2.png)
+<img src="pictures/qiime2.png" alt="qiime2" height="42" width="120">
 
 # qiime-tools
 
