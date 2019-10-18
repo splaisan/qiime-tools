@@ -27,17 +27,17 @@ qiime tools export --input-path taxonomy.qza --output-path taxonomy_export
     
     }
     
-cleanspecies () 
-{ 
-  level=7;
-  outfolder=taxonomy_genus
-  mkdir -p ${outfolder}
-  gawk -v lev="${level}" 'BEGIN{FS="\t"; OFS="\t"}\
-  {if(NR==1){print $0} else \
-  {split($2,tax,";"); res=tax[lev]; gsub("D_.__", "", res); split(res,spe," "); \
-  print $1,spe[1]" "spe[2],$3}}' $1 > "${outfolder}/${1%.tsv}.tsv"
-}
-```
+    cleanspecies () 
+    { 
+      level=7;
+      outfolder=taxonomy_genus
+      mkdir -p ${outfolder}
+      gawk -v lev="${level}" 'BEGIN{FS="\t"; OFS="\t"}\
+      {if(NR==1){print $0} else \
+      {split($2,tax,";"); res=tax[lev]; gsub("D_.__", "", res); split(res,spe," "); \
+      print $1,spe[1]" "spe[2],$3}}' $1 > "${outfolder}/${1%.tsv}.tsv"
+    }
+    ```
 
 * convert the folder and contained modified tsv file back as a **qza** artefact
 
