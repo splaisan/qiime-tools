@@ -11,7 +11,7 @@ A folder was created which contains a full structure with imput files for **qiim
 
 ### create a single gene database
 
-Choose target database (16S or 18S) and a specificity in the code below
+Choose target database (16S or 18S) and a specificity in the code below. Comment/uncomment as required for your needs.
 
 ```
 input="16S_only"
@@ -38,6 +38,8 @@ qiime tools import \
 ```
 
 ### create a full operon database
+
+The artifacts will cover the full operon **16S-ITS-23S**
 
 ```
 input="all"
