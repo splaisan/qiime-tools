@@ -1,4 +1,4 @@
-![logo](images/qiime2.png)
+![logo](pictures/qiime2.png)
 
 # qiime-tools
 
