@@ -95,4 +95,5 @@ After cleaning the taxonomy labels, the genus and species levels are shown below
 
 ![cleaned species plot](pictures/silva_cleaned_species_taxa_plot.png)
 
-## Please report any inconsistency or suggestion to [nucleomics-bioinformatics@vib.be)](mailto:nucleomics-bioinformatics@vib.be)
+<HR>
+Please report any inconsistency or suggestion to [nucleomics-bioinformatics@vib.be)](mailto:nucleomics-bioinformatics@vib.be)
