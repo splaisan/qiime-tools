@@ -4,13 +4,13 @@ By default Qiime2 produces boxplot labels covering the full taxonomy length (up 
 Two simple pilelines are shown below to produce 1-level data and create a more readable plot from it
 The method can be devided as follows (thanks to the post by **[Nicholas_Bokulich](https://forum.qiime2.org/t/command-or-tool-to-shorten-the-very-long-labels-in-viewer-from-taxa-bar-plots-qzv/12023/3))**
 
-* export the current **taxonomy.qza** using qiime export
+* export the current **taxonomy.qza** to a **.tsv** file using qiime export
 
 ```
 qiime tools export --input-path taxonomy.qza --output-path taxonomy_export
 ```
 
-* adapt the tsv file to simplify the taxon column to your needs, (genus and species shown here)
+* adapt the **.tsv** file to simplify the taxon column to your needs, (genus and species shown here)
   - two custom bash functions have been created to operate on genus or species level
 
     ```
@@ -39,7 +39,7 @@ qiime tools export --input-path taxonomy.qza --output-path taxonomy_export
     }
     ```
 
-* convert the folder and contained modified tsv file back as a **qza** artefact
+* convert the new folder and contained modified **.tsv** file back to a **qza** artefact
 
 ```
 # for genus
@@ -49,7 +49,7 @@ qiime tools import --type FeatureData[Taxonomy] --input-path taxonomy_genus --ou
 qiime tools import --type FeatureData[Taxonomy] --input-path taxonomy_species --output-path taxonomy_species.qza
 ```
 
-* optionally filter unclassified rows
+* optionally filter out unclassified rows in the **table.qza** if you don ot want them in the barplot
 
 ```
 # choose either genus or species file below!
@@ -60,7 +60,7 @@ qiime taxa filter-table \
   --o-filtered-table table-no-unassigned.qza
 ```
 
-* produce the viewer **qzv** (requires $SAMPLE_METADATA defined before)
+* produce the **qzv** input for the viewer (requires $SAMPLE_METADATA defined before)
 
 ```
 # choose either qza from above(
@@ -71,5 +71,5 @@ qiime qiime taxa barplot \
   --o-visualization taxa-bar-plots.qzv
 ```
 
-* upload **taxa-bar-plots.qzv** to the viewer
+* upload the created **taxa-bar-plots.qzv** to the viewer
 
