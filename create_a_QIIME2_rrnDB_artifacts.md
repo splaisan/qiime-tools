@@ -16,7 +16,7 @@ We detail here the procedure to create Qiime2 artifacts for the rrn database for
 
 ### create qiime artifacts for the rrnDB database 
 
-The **rrnDB** public database was derived from the NCBI RefSeq collection ([Stoddart et al, 2015](https://dx.doi.org/10.1093%2Fnar%2Fgku1201)) and contains genomic regions corresponding to the full 16S_ITS_18S locus from a large number of bacteria. We obtained this data and corresponding accession numbers from the **[github repository](https://github.com/alfbenpa/rrn_db)**.
+The **rrnDB** public database was derived from the NCBI RefSeq collection ([Stoddard et al, 2015](https://dx.doi.org/10.1093%2Fnar%2Fgku1201)) and contains genomic regions corresponding to the full 16S_ITS_18S locus from a large number of bacteria. We obtained this data and corresponding accession numbers from the **[github repository](https://github.com/alfbenpa/rrn_db)**.
 
 The procedure includes the following steps
 
@@ -94,7 +94,7 @@ cat nucl_gb.accession2taxid nucl_wgs.accession2taxid | sort | uniq > nucl_merged
 
 ### convert the reformatted data in Qiime format
 
-The fasta, ncbi-dump, and merged accession table were used together to produce a taxonomy file and Qiime2 sequence and annotation artifacts
+The fasta, ncbi-dump, and merged accession table were fed to **[entrez_qiime](https://github.com/bakerccm/entrez_qiime)** to produce a taxonomy used by **Qiime2** to create * the final **rnDB_operons_sequence.qza** and **rrnDB_operons_taxonomy.qza** artifacts.
 
 ```
 # use to create annotation taxonomy as detailed in MetONTIIME/Import_database.sh
