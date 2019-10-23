@@ -18,19 +18,44 @@ qiime tools export --input-path taxonomy.qza --output-path taxonomy_export
   - a custom bash functions has been created to operate on genus and species levels adn remove obsolete text from the labels.
 
     ```
+    # a variant for data from Silva (which adds D_.*__ to each level)
     function cleantaxonomy (){
       glev=6
       slev=7
       outfolder=taxonomy_genus_species
       mkdir -p ${outfolder}
       gawk -v glev="${glev}" -v slev="${slev}" 'BEGIN{FS="\t"; OFS="\t"}\
-      {if(NR==1){print $0} else \
-      {split($2,tax,";"); \
-      genus=tax[glev]; gsub("D_.*__", "", genus); split(genus,gena," "); \
-      gen=gena[1]; gsub(/[ \t]+$/,"",gen); \
-      species=tax[slev]; gsub("D_.*__", "", species); split(species,spea," "); \
-      spe=spea[1]" "spea[2]; gsub(/[ \t]+$/,"",spe); \
-      print $1,gen";"spe,$3}}' $1 > "${outfolder}/$(basename ${1%.tsv}).tsv"
+        {
+          if(NR==1){print $0} else {
+            split($2,tax,";"); \
+            genus=tax[glev]; gsub("D_.*__", "", genus); split(genus,gena," "); \
+            gen=gena[1]; gsub(/[ \t]+$/,"",gen); \
+            species=tax[slev]; gsub("D_.*__", "", species); split(species,spea," "); \
+            spe=spea[1]" "spea[2]; gsub(/[ \t]+$/,"",spe); \
+            print $1,gen";"spe,$3
+          }
+        }' $1 > "${outfolder}/$(basename ${1%.tsv}).tsv"
+    }
+    
+    # a variant for the data fromrrnDB
+    function cleantrrndb (){
+      glev=5
+      slev=6
+      outfolder=taxonomy_genus_species
+      mkdir -p ${outfolder}
+      gawk -v glev="${glev}" -v slev="${slev}" 'BEGIN{FS="\t"; OFS="\t"}\
+        {
+          if(NR==1){print $0} else {
+            split($2,tax,";"); \
+            if(length(tax)==slev && tax[glev]!="NA"){
+              genus=tax[glev]; split(genus,gena," "); \
+              gen=gena[1]; gsub(/[ \t]+$/,"",gen); \
+              species=tax[slev]; split(species,spea," "); \
+              spe=spea[1]" "spea[2]; gsub(/[ \t]+$/,"",spe); \
+              print $1,gen";"spe,$3
+            }
+          }
+        }' $1 > "${outfolder}/$(basename ${1%.tsv}).tsv";
     }
     ```
 
