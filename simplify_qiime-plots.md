@@ -18,7 +18,7 @@ qiime tools export --input-path taxonomy.qza --output-path taxonomy_export
   - a custom bash functions has been created to operate on genus and species levels adn remove obsolete text from the labels.
 
     ```
-    # a variant for data from Silva (which adds D_.*__ to each level)
+    # a variant for data from Silva (which adds D_.*__ to each level), reports empty classifications as 'Unassigned'
     function cleansilvataxonomy (){
     glev=6
     slev=7
