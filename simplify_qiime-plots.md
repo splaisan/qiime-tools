@@ -39,29 +39,30 @@ qiime tools export --input-path taxonomy.qza --output-path taxonomy_export
     
     # a variant for the data fromrrnDB
     function cleantrrndb (){
-      glev=5
-      slev=6
-      outfolder=taxonomy_genus_species
-      mkdir -p ${outfolder}
-      gawk -v glev="${glev}" -v slev="${slev}" 'BEGIN{FS="\t"; OFS="\t"}\
-        {
-          if(NR==1){print $0} else {
-            split($2,tax,";"); \
-            if(length(tax)==slev && tax[glev]!="NA"){
-              genus=tax[glev]; split(genus,gena," "); \
-              gen=gena[1]; gsub(/[ \t]+$/,"",gen); \
-              species=tax[slev]; split(species,spea," "); \
-              spe=spea[1]" "spea[2]; gsub(/[ \t]+$/,"",spe); \
-              print $1,gen";"spe,$3
+    glev=5
+    slev=6
+    outfolder=taxonomy_genus_species
+    mkdir -p ${outfolder}
+    gawk -v glev="${glev}" -v slev="${slev}" 'BEGIN{FS="\t"; OFS="\t"}\
+      {if(NR==1){print $0} else \
+        {split($2,tax,";"); \
+        if(length(tax)==slev && tax[glev]!="NA"){
+          genus=tax[glev]; sub("D_.*__", "", genus); split(genus,gena," "); \
+          gen=gena[1]; gsub(/[ \t]+$/,"",gen); \
+          species=tax[slev]; gsub("D_.*__", "", species); split(species,spea," "); \
+          spe=spea[1]" "spea[2]; gsub(/[ \t]+$/,"",spe); \
+          print $1,gen";"spe,$3} else {
+            print $1,";;",$3
             }
           }
-        }' $1 > "${outfolder}/$(basename ${1%.tsv}).tsv";
-    }
+    }' $1 > "${outfolder}/$(basename ${1%.tsv}).tsv";
+}
+
     ```
 
 ```
-# clean the exported file with
-cleantaxonomy taxonomy.tsv
+# clean the exported file with one of the functions eg
+cleantaxonomy taxonomy_export/taxonomy.tsv
 ```
 
 * convert the new folder and contained modified **.tsv** file back to a **qza** artefact
