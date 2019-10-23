@@ -108,7 +108,7 @@ qiime taxa barplot \
 ```
 * upload the created **taxa-bar-plots.qzv** to the viewer
 
-## examples
+## examples with the Silva_132 classified Zymo data
 
 The first plot shows the very long labels obtained at genus and species level with the MetONTIIME data (after removing unclassified data)
 
