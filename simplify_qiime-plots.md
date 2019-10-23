@@ -47,9 +47,9 @@ qiime tools export --input-path taxonomy.qza --output-path taxonomy_export
       {if(NR==1){print $0} else \
         {split($2,tax,";"); \
         if(length(tax)==slev && tax[glev]!="NA"){
-          genus=tax[glev]; sub("D_.*__", "", genus); split(genus,gena," "); \
+          genus=tax[glev]; split(genus,gena," "); \
           gen=gena[1]; gsub(/[ \t]+$/,"",gen); \
-          species=tax[slev]; gsub("D_.*__", "", species); split(species,spea," "); \
+          species=tax[slev]; split(species,spea," "); \
           spe=spea[1]" "spea[2]; gsub(/[ \t]+$/,"",spe); \
           print $1,gen";"spe,$3} else {
             print $1,"Unassigned",$3
