@@ -20,21 +20,24 @@ qiime tools export --input-path taxonomy.qza --output-path taxonomy_export
     ```
     # a variant for data from Silva (which adds D_.*__ to each level)
     function cleansilvataxonomy (){
-      glev=6
-      slev=7
-      outfolder=taxonomy_genus_species
-      mkdir -p ${outfolder}
-      gawk -v glev="${glev}" -v slev="${slev}" 'BEGIN{FS="\t"; OFS="\t"}\
-        {
-          if(NR==1){print $0} else {
-            split($2,tax,";"); \
-            genus=tax[glev]; gsub("D_.*__", "", genus); split(genus,gena," "); \
-            gen=gena[1]; gsub(/[ \t]+$/,"",gen); \
-            species=tax[slev]; gsub("D_.*__", "", species); split(species,spea," "); \
-            spe=spea[1]" "spea[2]; gsub(/[ \t]+$/,"",spe); \
-            print $1,gen";"spe,$3
+    glev=6
+    slev=7
+    outfolder=taxonomy_genus_species
+    mkdir -p ${outfolder}
+    gawk -v glev="${glev}" -v slev="${slev}" 'BEGIN{FS="\t"; OFS="\t"}\
+      {if(NR==1){print $0} else \
+        {split($2,tax,";"); \
+        if(length(tax)==slev && tax[glev]!=""){
+          genus=tax[glev]; gsub("D_.*__", "", genus); split(genus,gena," "); \
+          gen=gena[1]; gsub(/[ \t]+$/,"",gen); \
+          species=tax[slev]; gsub("D_.*__", "", species); split(species,spea," "); \
+          spe=spea[1]" "spea[2]; gsub(/[ \t]+$/,"",spe); \
+          print $1,gen";"spe,$3
+          } else {
+            print $1,"Unassigned",$3
           }
-        }' $1 > "${outfolder}/$(basename ${1%.tsv}).tsv"
+        }
+      }' $1 > "${outfolder}/$(basename ${1%.tsv}).tsv";
     }
     
     # a variant for the data from epi2me or rrnDB (report all incomplete as 'Unassigned')
@@ -51,11 +54,12 @@ qiime tools export --input-path taxonomy.qza --output-path taxonomy_export
           gen=gena[1]; gsub(/[ \t]+$/,"",gen); \
           species=tax[slev]; split(species,spea," "); \
           spe=spea[1]" "spea[2]; gsub(/[ \t]+$/,"",spe); \
-          print $1,gen";"spe,$3} else {
-            print $1,"Unassigned",$3
-            }
-          }
-    }' $1 > "${outfolder}/$(basename ${1%.tsv}).tsv";
+          print $1,gen";"spe,$3
+        } else {
+          print $1,"Unassigned",$3
+        }
+     }
+  }' $1 > "${outfolder}/$(basename ${1%.tsv}).tsv";
 }
 
     ```
