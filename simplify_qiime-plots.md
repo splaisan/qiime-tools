@@ -116,11 +116,15 @@ The first plot shows the very long labels obtained at genus and species level wi
 
 ![original species plot](pictures/silva_original_species_taxa_plot.png)
 
-After cleaning the taxonomy labels, the genus and species levels are shown below. 
+After cleaning the taxonomy labels, the **genus** and **species** levels are shown below. 
 
 **Note:** Additional advantage of the cleaning was to merge all subspecies of a given species to the same label. Indeed, a number of records in the Silva database include subspecies information which may not be relevant in such plot and led to several bar regions mapping to the same species (an extreme example here: 'Listeria monocytogenes serotype 1/2a str. NCCP No. 15743' => 'Listeria monocytogenes' after cleaning). After cleaning, all subspecies get mapped to the same species and the order of the abyundance changes slightly.
 
+**genus level**
+
 ![cleaned genus plot](pictures/silva_cleaned_genus_taxa_plot.png)
+
+**species level**
 
 ![cleaned species plot](pictures/silva_cleaned_species_taxa_plot.png)
 
