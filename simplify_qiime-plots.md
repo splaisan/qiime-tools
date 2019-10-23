@@ -19,7 +19,7 @@ qiime tools export --input-path taxonomy.qza --output-path taxonomy_export
 
     ```
     # a variant for data from Silva (which adds D_.*__ to each level)
-    function cleantaxonomy (){
+    function cleansilvataxonomy (){
       glev=6
       slev=7
       outfolder=taxonomy_genus_species
@@ -37,8 +37,8 @@ qiime tools export --input-path taxonomy.qza --output-path taxonomy_export
         }' $1 > "${outfolder}/$(basename ${1%.tsv}).tsv"
     }
     
-    # a variant for the data from rrnDB (report all incomplete as 'Unassigned')
-    function cleantrrndb (){
+    # a variant for the data from epi2me or rrnDB (report all incomplete as 'Unassigned')
+    function cleantaxonomy (){
     glev=5
     slev=6
     outfolder=taxonomy_genus_species
