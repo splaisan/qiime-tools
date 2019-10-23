@@ -91,7 +91,7 @@ qiime taxa barplot \
 ```
 qiime taxa filter-table \
   --i-table table.qza \
-  --i-taxonomy taxonomy.qza \
+  --i-taxonomy taxonomy_cleaned.qza \
   --p-exclude Unassigned \
   --o-filtered-table table-no-unassigned.qza
 ```
