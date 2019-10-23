@@ -37,7 +37,7 @@ qiime tools export --input-path taxonomy.qza --output-path taxonomy_export
         }' $1 > "${outfolder}/$(basename ${1%.tsv}).tsv"
     }
     
-    # a variant for the data fromrrnDB
+    # a variant for the data from rrnDB (report all incomplete as 'Unassigned')
     function cleantrrndb (){
     glev=5
     slev=6
@@ -52,7 +52,7 @@ qiime tools export --input-path taxonomy.qza --output-path taxonomy_export
           species=tax[slev]; gsub("D_.*__", "", species); split(species,spea," "); \
           spe=spea[1]" "spea[2]; gsub(/[ \t]+$/,"",spe); \
           print $1,gen";"spe,$3} else {
-            print $1,";;",$3
+            print $1,"Unassigned",$3
             }
           }
     }' $1 > "${outfolder}/$(basename ${1%.tsv}).tsv";
