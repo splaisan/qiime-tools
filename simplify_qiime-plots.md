@@ -55,12 +55,12 @@ qiime tools export --input-path taxonomy.qza --output-path taxonomy_export
           species=tax[slev]; split(species,spea," "); \
           spe=spea[1]" "spea[2]; gsub(/[ \t]+$/,"",spe); \
           print $1,gen";"spe,$3
-        } else {
-          print $1,"Unassigned",$3
-        }
-     }
-  }' $1 > "${outfolder}/$(basename ${1%.tsv}).tsv";
-}
+          } else {
+            print $1,"Unassigned",$3
+            }
+          }
+       }' $1 > "${outfolder}/$(basename ${1%.tsv}).tsv";
+    }
 
     ```
 
