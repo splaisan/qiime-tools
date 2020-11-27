@@ -1,3 +1,4 @@
+# create_Silva138_V3-4.sh
 # Create QIIME2 v138 nr99 classifier for SSU (16S) region V3-4
 # work files are stored in tax/workdir 
 # final classifiers are stored in the tax folder 
