@@ -13,7 +13,10 @@
 # install miniconda and qiime2 before proceeding here
 # https://docs.qiime2.org/2020.8/install/native/
 
+# activate qiime2
+source $(conda info --base)/profile.d/conda.sh
 conda activate qiime2-2020.8
+
 # install RESCRIPt within Qiime2
 # conda activate qiime2-2020.8
 # conda install -c conda-forge -c bioconda -c qiime2 -c defaults xmltodict
