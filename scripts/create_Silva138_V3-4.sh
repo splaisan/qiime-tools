@@ -2,8 +2,15 @@
 # work files are stored in tax/workdir 
 # final classifiers are stored in the tax folder 
 
+# Stephane Plaisance VIB-NC 2020_11_27 v1.0
+#
+# visit our Git: https://github.com/Nucleomics-VIB
+
 # https://forum.qiime2.org/t/processing-filtering-and-evaluating-the-silva-database
 # -and-other-reference-sequence-data-with-rescript/15494
+
+# install miniconda and qiime2 before proceeding here
+# https://docs.qiime2.org/2020.8/install/native/
 
 conda activate qiime2-2020.8
 # install RESCRIPt within Qiime2
